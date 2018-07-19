@@ -6,13 +6,18 @@ picplugin引用了目前最新的机器人sdk插件,所以也需要最新版Q++�
 picplugin模块的功能是让用户发送美女 就能自动发送一个美女图片,原理是从sdcard卡存放的路径中随机取出一个图片进行发送.
 
 ### 生成插件和测试步骤
-1 .点击build
-2 .通过 adb push 推送到手机/sdcard/robot_plugin/目录下 
+
+1 .点击build-Build apk
+
+2 .通过 adb push 推送到手机/sdcard/robot_plugin/目录下
+
 如果没有修改项目名默认的命令如下
 点击android studio 下面的终端窗口 粘贴如下命令
 ```adb push app/build/outputs/apk/debug/app-debug.apk /sdcard/qssq666/robot_plugin/see_pic.apk```
 3. 打开情迁QQ机器人,进入插件管理中心,点击插件
+
 4. 如果使用Q++插件启用勒插件化加载,则可以从插件中心进入管理插件,不过目前还是非插件式加载最稳定,就算机器人崩溃也不会影响到宿主(QQ).
+
 ### 其它问题
 理论上可以直接通过lib库build arr然后提取jar文件
 然后输入

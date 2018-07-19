@@ -4,7 +4,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.File;
 import java.util.Random;
@@ -130,7 +129,7 @@ public class PluginMainImpl extends SimplePluginInterfaceWrapper {
                     getControlApi().sendPicMsg(item, item.getFrienduin(), item.getSenderuin(), picPath);
                     return true;
                 } else {
-                    Toast.makeText(getContext(), "无法发送图片", Toast.LENGTH_SHORT).show();
+                     getControlApi().sendQQMsg(item.setMessage("无法发送图片,因为/sdcard/boy文件夹里面没有图片"));
                 }
 
             } else {
@@ -163,7 +162,7 @@ public class PluginMainImpl extends SimplePluginInterfaceWrapper {
                     return true;
 
                 } else {
-                    Toast.makeText(getContext(), "无法发送图片", Toast.LENGTH_SHORT).show();
+                    getControlApi().sendQQMsg(item.setMessage("无法发送图片,因为/sdcard/pic文件夹里面没有图片"));
                 }
 
             } else {
