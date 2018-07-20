@@ -27,3 +27,4 @@ dependencies {
     api project(':picplugin')
     compileOnly 'cn.qssq666:robot_sdk:1.0'
 }
+//adb push app/build/outputs/apk/debug/app-debug.apk /sdcard/qssq666/robot_plugin/see_pic.apk

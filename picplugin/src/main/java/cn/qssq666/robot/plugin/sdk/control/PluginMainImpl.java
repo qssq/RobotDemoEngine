@@ -17,6 +17,7 @@ import cn.qssq666.robot.plugin.sdk.interfaces.IMsgModel;
 //cn.qssq666.robot.plugin.sdk.control.PluginMainImpl
 public class PluginMainImpl extends SimplePluginInterfaceWrapper {
     private static final String TAG = "PluginMainImpl";
+String    mLastMsg="";
 
     @Override
     public String getAuthorName() {
@@ -65,6 +66,7 @@ public class PluginMainImpl extends SimplePluginInterfaceWrapper {
 
     @Override
     public boolean onReceiveMsgIsNeedIntercept(IMsgModel item) {
+        mLastMsg=item.getMessage();
         if (getControlApi().isGroupMsg(item)) {
 
             if (getConfigApi().isEnableGroupMsg() && getConfigApi().isAtGroupWhiteNames(item)) {
@@ -86,6 +88,8 @@ public class PluginMainImpl extends SimplePluginInterfaceWrapper {
 
     private boolean doLogic(IMsgModel item) {
         String message = item.getMessage();
+
+
 
         //todo
 
@@ -190,7 +194,8 @@ public class PluginMainImpl extends SimplePluginInterfaceWrapper {
     @Override
     public View onConfigUi(ViewGroup viewGroup) {
         TextView textView = new TextView(viewGroup.getContext());
-        textView.setText("使用方法\n发送 看美女 或者看帅哥,或者看图 就能欣赏图片啦,前提是需要在/sdcard/pic文件夹放入 boy ,girl other文件夹 然后分别放入对应的图片哦,本程序插件免费开源!欢迎各位开发新的插件哦!温馨提示,插件不支持自己测试触发,必须借助非机器人qq发送消息测试! ");
+        textView.setText("使用方法\n发送 看美女 或者看帅哥,或者看图 就能欣赏图片啦,前提是需要在/sdcard/pic文件夹放入 boy ,girl other文件夹 然后分别放入对应的图片哦,本程序插件免费开源!欢迎各位开发新的插件哦!温馨提示,插件不支持自己测试触发,必须借助非机器人qq发送消息测试! \n最后消息:"+mLastMsg);
+
 
         return textView;
     }
