@@ -7,7 +7,7 @@ picplugin模块的功能是让用户发送美女 就能自动发送一个美女�
 
 ### 生成插件和测试步骤
 
-1 .点击build-Build apk
+1 .菜单栏 点击build->Build apk(s)
 
 2 .通过 adb push 推送到手机/sdcard/robot_plugin/目录下
 
@@ -18,8 +18,12 @@ picplugin模块的功能是让用户发送美女 就能自动发送一个美女�
 
 4. 如果使用Q++插件启用勒插件化加载,则可以从插件中心进入管理插件,不过目前还是非插件式加载最稳定,就算机器人崩溃也不会影响到宿主(QQ).
 
+5. 生效需要刷新列表加载
+
+
 ### 其它问题
 理论上可以直接通过lib库build arr然后提取jar文件
 然后输入
 ```adb push picplugin/build/outputs/aar/picplugin-release/classes.jar /sdcard/qssq666/robot_plugin/see_pic.jar```
 就可以从机器人软件里面看到的,但是现在的问题是找不到 Class,这个问题目前无法得知原因.所以暂时先用 apk或者apk里面的dex作为加载吧,本来我是想实现dex,jar,apk都兼容的..
+
